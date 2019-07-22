@@ -1,0 +1,56 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="{% url 'home' %}" class="navbar-brand">oCommerce Shop</a>
+            </div>
+            <form action="/search/" method="GET" role="search" class="navbar-form navbar-left">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" name="product_search" class="form-control" placeholder="ค้นหาสินค้า">
+                        <span class="input-group-btn">
+                            <button type="" class="btn btn-success">ค้นหา</button>
+                        </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </nav>
+    <!-- End Navigation Bar -->
+
+    <!-- Content -->
+    <div class="body">
+        <div class="container">
+            {% block page %}
+            {% endblock %}
+        </div>
+    </div>
+
+    <!-- EndContent -->
+
+    <!-- Footer -->
+
+    <footer class="footer">
+        <div class="container">
+            <p>oCommerce 2017</p>
+        </div>
+    </footer>
+
+    <!-- EndFooter -->
+
+</body>
+</html>
